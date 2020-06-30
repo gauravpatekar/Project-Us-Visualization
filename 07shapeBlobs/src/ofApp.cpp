@@ -50,12 +50,11 @@ void ofApp::draw(){
             ofDrawCircle(i, y, 5);
         }
                     
-        
     }
+    
     ofSetColor(0, 0, 0);
     ofDrawBitmapString("SCR: ", 20, ofGetHeight() - 20);
     ofDrawBitmapString((int)scr, 60, ofGetHeight() - 20);
-    
     
     //Map SCR to the color saturation
     int saturation1 = ofMap(scr1, 1, 8, 0, 255);
@@ -68,9 +67,12 @@ void ofApp::draw(){
     smoothingValue3 = ofMap(scr3, 1, 8, 1000, 200);
     
     
+    ///////////////////////////////////
+    // 3 color blobs
     
     cam.begin();
     
+    // BLOB 3
     ofPushMatrix();
     ofScale(1.7);
     ofMesh mesh3;
@@ -89,6 +91,7 @@ void ofApp::draw(){
     mesh3.draw();
     ofPopMatrix();
 
+    // BLOB 2
     ofPushMatrix();
     ofScale(1.4);
     ofMesh mesh2;
@@ -107,8 +110,7 @@ void ofApp::draw(){
     mesh2.draw();
     ofPopMatrix();
     
-    
-    
+    // BLOB 1
     ofMesh mesh;
     mesh.setMode(OF_PRIMITIVE_TRIANGLE_FAN);
     mesh.addVertex(ofPoint(0, 0, 0) );
@@ -135,7 +137,6 @@ void ofApp::draw(){
     
     toff += 0.002;
     colorDelta += 0.2;
-//  if(colorDelta > 205) colorDelta = 0;
     
 
 }
